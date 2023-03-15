@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+:root {
+    --v-dark-blue: hsl(226, 43%, 10%);
+    --dark-blue: hsl(235, 46%, 20%);
+    --desat-blue: hsl(235, 45%, 61%);
+    --pale-blue: hsl(236, 100%, 87%);
+
+
+    --blue: hsl(246, 80%, 60%);
+    --work: hsl(15, 100%, 70%);
+    --play: hsl(195, 74%, 62%);
+    --study: hsl(348, 100%, 68%);
+    --exercise: hsl(145, 58%, 55%);
+    --social: hsl(264, 64%, 52%);
+    --self-care: hsl(43, 84%, 65%);
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Rubik', sans-serif;    
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    background-color: var(--v-dark-blue);
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    min-width: 1100px;
+    height: 520px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2em;
+    align-items: end;
+}
+
+.main .card {
+    background: white;
+    width: 100%;
+    position: relative;
+    background-color: var(--dark-blue);
+    border-radius: 15px;
+}
+
+#card {
+    display: flex;
+    flex-direction: column;
+}
+
+#card .card-title {
+    color: white;
+    font-size: 1.2em;
+    
+    
+}
+
+#card .card-current-time {
+    margin-top: auto;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 4px;
+}
+
+#card .card-previous-time {
+    color: var(--pale-blue);
+    font-size:.9em;
+    opacity: .8;
+}
+
+.title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.more-icon {
+    cursor: pointer;
+}
+
+.more-icon:hover {
+    animation: jump 200ms ease-in;
+}
+
+@keyframes jump {
+    0% {
+        transform: rotate(1deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.card-time {
+    margin-top: auto;
+}
+
+.main .card:not(:first-child){
+    height: 80%;
+    padding: 1.8em;
+}
+
+.main .card:first-child {
+    grid-row: 1 / -1;
+}
+
+.card:not(:first-child):after {
+    content: '';
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    z-index: -1;
+    border-radius: 15px;
+}
+
+/*  below is Wrapper for both report for card and time card  */
+.profile-card {
+    height: 100%;
+}
+
+.report-for-card {
+    height: 70%;
+    background-color: var(--blue);
+    border-radius: 15px;
+
+    padding: 2.2em;
+
+    display: flex;
+    flex-direction: column;
+    
+}
+.time-card {
+    height: calc(100% - 70%);
+    display: flex;
+    flex-direction: column;
+
+    font-size: 1.1em;
+    gap: 1em;
+    margin: 1.5em 0 0 2em;
+}
+
+.time-card > a {
+    color: var(--desat-blue);
+}
+
+.time-card > a.active {
+    color: white;
+}
+
+.user-profile {
+    width: 80px;
+    aspect-ratio: 1;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.report-for {
+    color: var(--pale-blue);
+    opacity: 0.8;
+    margin-top: 3em;
+}
+
+.user-name {
+    font-size:2.5em;
+    color: white;
+    font-weight: 300;
+}
+
+.work:after {
+    background: url('./images/icon-work.svg') no-repeat 160px -10px;
+    background-color: var(--work);
+}
+.play::after {
+    background: url('./images/icon-play.svg') no-repeat 160px -10px;
+    background-color: var(--play);
+}
+.study::after {
+    background: url('./images/icon-study.svg') no-repeat 160px -10px;
+    background-color: var(--study);
+}
+.exercise::after {
+
+    background: url('./images/icon-exercise.svg') no-repeat 160px 0px;
+    background-color: var(--exercise);
+}
+.social::after {
+    background: url('./images/icon-social.svg') no-repeat 160px -10px;
+    background-color: var(--social);
+}
+.self-care::after {
+    background: url('./images/icon-self-care.svg') no-repeat 160px -10px; 
+    background-color: var(--self-care);
+}
+
+
+
+@media (max-width:1105px) {
+    .main {
+        min-width: 750px;
+        gap: 1.5em;
+    }
+
+    .user-name {
+        font-size: 2.2em;
+    }
+
+    /* Positioning cards background image */
+    .card:not(:first-child)::after {
+        background-position: 115px -5px;
+    }
+}
+
+@media (max-width: 850px) {
+    /* Removing line break */
+    .desktop-device {
+        display: none;
+    }   
+
+    .main {
+        grid-template-columns: 400px;
+        grid-template-rows: repeat(7, 180px);
+        align-items: center;
+        justify-content: center;
+
+        row-gap:2em;
+        margin-top: 5em;
+        height: auto;
+    }
+
+    .main .card:first-child  {
+        grid-row: initial;
+    }
+
+    /* Rest customizing bunch of flex properties to look like design */
+    .card-time {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #card .card-current-time {
+        font-size: 2.5em;
+    }
+
+   .card:not(:first-child)::after {
+        top: -35px;
+        background-position: 310px -10px;
+   }
+
+    .report-for-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 1em;
+    }
+    
+    .name-container {
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        height: 100%;
+    }
+    .user-name {
+        font-size: 1.8em;
+    }
+    .report-for {
+        margin-top: .5em;
+    }
+    .time-card {
+       
+        flex-direction: row;
+        justify-content: space-around;
+        
+        padding-top:1em ;
+        margin: 0;
+    }
+}
