@@ -56,19 +56,19 @@ body {
     border-radius: 15px;
 }
 
-#card {
+.info-card {
     display: flex;
     flex-direction: column;
 }
 
-#card .card-title {
+.info-card .card-title {
     color: white;
     font-size: 1.2em;
     
     
 }
 
-#card .card-current-time {
+.info-card .card-current-time {
     margin-top: auto;
     font-size: 3.5rem;
     font-weight: 300;
@@ -76,7 +76,7 @@ body {
     margin-bottom: 4px;
 }
 
-#card .card-previous-time {
+.info-card .card-previous-time {
     color: var(--pale-blue);
     font-size:.9em;
     opacity: .8;
@@ -255,7 +255,7 @@ body {
         align-items: center;
     }
 
-    #card .card-current-time {
+    .info-card .card-current-time {
         font-size: 2.5em;
     }
 

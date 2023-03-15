@@ -1,4 +1,4 @@
-const card = document.querySelectorAll('#card')
+const card = document.querySelectorAll('.info-card')
 const links = document.querySelectorAll('.links')
 
 let cardData ; //This will be set to data fetch by json file
